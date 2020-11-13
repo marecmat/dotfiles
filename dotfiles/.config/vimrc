@@ -1,0 +1,113 @@
+set number relativenumber   " Display number of Left
+set encoding=utf-8          " UTF-8 encoding
+set showcmd		    " Show (partial) command in status line.
+set showmatch		    " Show matching brackets.
+set ignorecase		    " Do case insensitive matching
+set smartcase		    " Do smart case matching
+set incsearch		    " Incremental search
+set autowrite		    " Automatically save before commands like :next and :make
+set hidden		    " Hide buffers when they are abandoned
+set mouse=a		    " Enable mouse usage (all modes)
+set t_Co=256                " Use 256 colors
+set noshowmode		    " Don't show status bar (we already use light line for that)
+set expandtab		    " Use spaces instead of tabs
+set smarttab		    " Be smart when using tabs ;)
+set shiftwidth=4	    " 1 tab == 4 spaces
+set tabstop=4               " same
+set wrap linebreak nolist   " Line break
+set clipboard-=unnamedplus  " Use clipboard (bienpratique)
+set titlestring=%t          " Set title to be only the name of the opened file
+set title                   " Pipe nvim out of st
+set nocompatible            " Override Vi default behaviour
+set laststatus=2            " set how to display status bar
+set completeopt+=menuone    " display menu even if only one element is available
+set completeopt+=noinsert   " no innoportune autocompletion (because it's f*cking annoying)
+set scrolloff=999           " Keep cursor on the middle of the screen
+
+filetype plugin indent on
+syntax on
+
+" colorscheme jummidark
+
+" ADE configuration: Python and LaTeX
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+" Enable folding with the space bar
+nnoremap <space> za 
+
+" setlocal spell
+" set spelllang=en_us
+
+" key mapping 
+map <F5> :VimtexCompile<CR>
+map <F6> :VimtexErrors<CR>
+nmap <C-q> :q<CR>
+nmap <C-s> :w<CR>
+map <C-c> "+y<CR>
+
+" Consider virtual lines as actual lines
+nnoremap $ g$
+nnoremap j gj
+nnoremap k gk
+nnoremap ^ g^
+
+" add brackets
+inoremap { {}<Left>
+inoremap ( ()<Left>
+inoremap [ []<Left>
+inoremap " ""<Left>
+
+
+" Vim-plug plug ins and configuration
+call plug#begin('~/.config/nvim/plugged')
+Plug 'tpope/vim-sensible'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'tpope/vim-surround'
+Plug 'chrisbra/Colorizer'
+Plug 'kien/ctrlp.vim'
+    nnoremap <c-p> :CtrlPMixed<CR>
+
+Plug 'lifepillar/vim-mucomplete'
+    set shortmess+=c   " Shut off completion messages
+    set belloff+=ctrlg " If Vim beeps during completion
+    let g:mucomplete#enable_auto_at_startup = 1
+
+Plug 'preservim/nerdtree'
+   map <C-n> :NERDTreeToggle<CR>
+   let g:NERDTreeDirArrowExpandable = '▸'
+   let g:NERDTreeDirArrowCollapsible = '▾'
+   let NERDTreeShowLineNumbers=1
+   let NERDTreeShowHidden=1
+   let NERDTreeMinimalUI = 1
+
+Plug 'itchyny/lightline.vim'
+    let g:lightline = {
+	\ 'colorscheme': 'seoul256',
+	\ }
+
+Plug 'tmhedberg/SimpylFold'
+    let g:SimpylFold_docstring_preview=1
+
+Plug 'sirver/ultisnips'
+    let g:UltiSnipsExpandTrigger = '<s-tab>'
+    let g:UltiSnipsJumpForwardTrigger = '<s-tab>'
+    let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+    let g:UltiSnipsSnippetsDir = '~/.config/nvim/'
+
+Plug 'lervag/vimtex'
+    let g:tex_flavor='latex'
+    let g:vimtex_view_method='zathura'
+    let g:vimtex_quickfix_mode=0
+
+Plug 'KeitaNakamura/tex-conceal.vim'
+    set conceallevel=0
+    let g:tex_conceal='abdmg'
+    hi Conceal ctermbg=none
+
+" Kite config 
+    let g:kite_supported_languages = ['python', 'go']
+    let g:kite_tab_complete=1
+
+call plug#end()

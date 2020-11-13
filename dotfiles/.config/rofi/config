@@ -1,0 +1,6 @@
+! === rofi ===
+
+rofi.modi:		ssh,window,drun, run
+rofi.lines:		6
+rofi.columns:		1
+rofi.theme:		~/.config/rofi/material.rasi

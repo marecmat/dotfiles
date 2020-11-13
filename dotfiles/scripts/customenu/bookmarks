@@ -1,0 +1,41 @@
+#!/bin/bash
+
+title="  Bookmarks"
+location=1
+width=6
+xoffset=40
+yoffset=70
+
+browser="firefox --new-tab" 
+
+typeset -A menu
+menu=(
+[/Browser]="./browser.sh"
+[/Blank]="firefox"
+[Routeur]="$browser https://192.168.1.254/"
+[NAS]="$browser https://192.168.1.1/"
+[Server]="$browser https://192.168.1.10:8006"
+[Cloud]="$browser https://cloud.mmarechal.fr"
+[Google Keep]="$browser https://keep.google.com"
+[Calendar]="$browser https://calendar.google.com"
+[Twitter]="$browser https://twitter.com"
+[Messenger]="$browser https://www.facebook.com/messages/t"
+[Youtube]="$browser https://youtube.com"
+[Netflix]="$browser https://netflix.com"
+[DeepL]="$browser https://deepl.com/en/translator/"
+[Mediapart]="$browser https://mediapart.fr/"
+[Github]="$browser https://github.com/marecmat?tab=repositories"
+[ENT Le Mans]="$browser http://ent.univ-lemans.fr/fr/etudiant-connecte.html"
+[KOS Prague]="$browser https://www.kos.cvut.cz/"
+[Overleaf]="$browser https://www.overleaf.com/login"
+[Reddit]="$browser https://www.reddit.com/"
+[Regexr]="$browser https://regexr.com"
+[Sheets]="$browser https://docs.google.com/spreadsheets/u/0/"
+[OVH]="$browser https://www.ovh.com/manager/#/"
+)
+
+typeset -A colors
+colors=(
+    [color-flag]="#EEEEEE"
+)
+

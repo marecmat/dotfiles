@@ -1,0 +1,62 @@
+alias ll='ls -alF'
+alias la='ls -la'
+alias mkdir='mkdir -p -v'
+alias mv='mv -v'
+alias cp="cp -i"
+alias q='exit'
+alias c='clear'
+alias p='cat'
+alias cs='clear;ls'
+alias SS='sudo systemctl'
+alias r='ranger --choosedir=$HOME/.config/rangerdir; LASTDIR=`cat $HOME/.config/rangerdir`; cd "$LASTDIR"'
+alias ranger='ranger --choosedir=$HOME/.config/rangerdir; LASTDIR=`cat $HOME/.config/rangerdir`; cd "$LASTDIR"'
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
+alias sr='sudo ranger'
+alias v='nvim'
+alias vim='nvim'
+alias vi='nvim'
+alias sv='sudo vim'
+alias vimtemp='cd ~/.local/share/nvim/swap/'
+alias z='zathura'
+alias b='bluetoothctl'
+#Directories
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
+# Git aliases
+# https://medium.com/@tzhenghao/a-guide-to-building-a-great-bashrc-23c52e466b1c
+alias g='git'
+alias gpull='git pull origin master'
+alias gpush='git push -u origin master'
+alias gconf='git config'
+alias gcom='git commit -m'
+alias gclone='git clone'
+alias gall='git add .'
+alias gitu='git add . && git commit && git push'
+# Python commands
+alias pip='pip3'
+alias python='python3'
+alias pyt='python3'
+
+# Useless utility
+alias whatsmyip='curl https://ipinfo.io/ip'
+alias whatday='date +%j'
+
+#Brightness
+alias bph="$HOME/scripts/brightness.sh + HDMI-0 10"
+alias bmh="$HOME/scripts/brightness.sh - HDMI-0 10"
+alias bpd="$HOME/scripts/brightness.sh + DP-2 10"
+alias bmd="$HOME/scripts/brightness.sh - DP-2 10"
+
+#Pomodoro
+alias pomodoro="$HOME/scripts/pomodoro.py"
+
+# Copy templates
+function artex { cp $HOME/templates/article.tex ./$1.tex; }
+function bookmark { echo map $1 cd $PWD >> ~/.config/ranger/rc.conf; }
+function md2pdf { pandoc --from=MARKDOWN --to=PDF -t latex -o $2 $1; }
+alias doc2pdf='lowriter --convert-to pdf'
+function newv { st -e nvim $1 & disown; }
+function selall { xclip -sel c < $1; }

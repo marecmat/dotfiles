@@ -1,0 +1,43 @@
+* {
+  background-color: #21212177; 
+  border-color: #8430D9;
+  text-color: #919191;
+  spacing: 0;
+  width: 512px;
+  font: "Ubuntu Mono 15";
+}
+
+window {
+	border: 2px 2px 2px 2px;
+}
+
+inputbar {
+  children: [prompt,entry];
+}
+
+prompt {
+  padding: 20px;
+}
+
+entry {
+  padding: 20px;
+}
+
+element {
+  border: 0 0 0 0;
+  padding: 16px;
+}
+
+textbox {
+  padding: 8px 16px;
+}
+
+listview {
+  cycle: false;
+  margin: 0 0 -1px 0;
+  scrollbar: false;
+}
+
+element selected {
+  text-color: #eeffff;
+}

@@ -1,0 +1,22 @@
+#!/bin/bash
+
+title="Power Menu"
+location=1
+width=15
+xoffset=40
+yoffset=70
+
+typeset -A menu
+menu=(
+    [ - Sleep]="systemctl suspend"
+    [  - Lock]="gnome-screensaver-command --lock"
+    [  - Exit i3]="i3-msg exit"
+    [  - Power off]="systemctl poweroff"
+    [  - Reboot]="systemctl reboot"
+)
+
+typeset -A colors
+colors=(
+    [color-flag]="#EEEEEE"
+)
+
